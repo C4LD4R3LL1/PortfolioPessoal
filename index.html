@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Luis Felipe Ferreira Caldarelli - Desenvolvedor Web">
+    <meta name="description" content="Portfólio de Luis Felipe Ferreira Caldarelli - Desenvolvedor">
     <title>Luis Felipe Ferreira Caldarelli | Desenvolvedor</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,6 +21,11 @@
                 <a href="#projetos" class="nav-link">Projetos</a>
                 <a href="#contato" class="nav-link">Contato</a>
             </nav>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -34,8 +39,8 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">Luis Felipe Ferreira Caldarelli</h1>
-                <p class="hero-subtitle">Desenvolvedor Full Stack | UI/UX Enthusiast</p>
-                <p class="hero-description">Criando soluções web inovadoras e interfaces intuitivas</p>
+                <p class="hero-subtitle">Desenvolvedor</p>
+                <p class="hero-description">Bacharel em Ciência da Computação | Desenvolvedor Backend Java | APIs REST, SQL | NX Multiserviços</p>
                 <div class="cta-buttons">
                     <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
                     <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
@@ -56,35 +61,106 @@
     <!-- About Section -->
     <section id="sobre" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title">Quem Sou Eu</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Olá! Sou Luis Felipe, desenvolvedor apaixonado por criar experiências web incríveis. Com experiência em <strong>TypeScript, HTML, CSS, Java e PHP</strong>, trabalho para transformar ideias em soluções práticas e bem-estruturadas.</p>
+                    <p>Atuo como <strong>Analista de Sistemas / Desenvolvedor Backend</strong> na <strong>NX Multiserviços</strong>, onde trabalho com Java, Python, REST APIs e bancos de dados relacionais para garantir qualidade e confiabilidade dos sistemas da equipe.</p>
                     
-                    <p>Localizado em <strong>Londrina-PR</strong>, estou sempre aprendendo e explorando novas tecnologias. Meu foco é em <strong>boas práticas de desenvolvimento</strong>, <strong>design patterns</strong> e <strong>princípios SOLID</strong>.</p>
+                    <p>Formando em <strong>Ciência da Computação</strong> pela UniFil (conclusão em julho de 2026). Meu TCC abordou o impacto dos algoritmos de recomendação no YouTube, unindo análise técnica e reflexões sociais.</p>
 
-                    <p>Quando não estou codificando, estou estudando metodologias de desenvolvimento e melhorando minhas habilidades em UI/UX.</p>
+                    <p>Tenho foco em <strong>boas práticas de desenvolvimento</strong>, <strong>design patterns</strong> e <strong>princípios SOLID</strong>. Sempre buscando aprender e evoluir dentro do ecossistema backend.</p>
                 </div>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <i class="fas fa-code"></i>
-                        <h3>Frontend</h3>
-                        <p>HTML, CSS, JavaScript, TypeScript</p>
+                        <i class="fab fa-java"></i>
+                        <h3>Java</h3>
+                        <p>OOP, Spring Framework, JSF</p>
                     </div>
                     <div class="skill-card">
                         <i class="fas fa-database"></i>
                         <h3>Backend</h3>
-                        <p>Node.js, Java, PHP</p>
+                        <p>Python, PHP, REST APIs</p>
                     </div>
                     <div class="skill-card">
-                        <i class="fas fa-palette"></i>
-                        <h3>UI/UX</h3>
-                        <p>Design Responsivo, Acessibilidade</p>
+                        <i class="fas fa-code"></i>
+                        <h3>Frontend</h3>
+                        <p>TypeScript, HTML, CSS, JavaScript</p>
                     </div>
                     <div class="skill-card">
                         <i class="fas fa-cube"></i>
                         <h3>Padrões</h3>
                         <p>Design Patterns, SOLID</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <h3>Analista de Sistemas</h3>
+                        <p class="experience-company">NX Multiserviços</p>
+                        <p class="experience-period">Jun 2024 – Presente · 1 ano+</p>
+                        <p class="experience-description">Desenvolvimento e manutenção de sistemas backend com Java, Python e bancos de dados relacionais. Garantia de qualidade e confiabilidade dos processos tecnológicos.</p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <h3>Programador</h3>
+                        <p class="experience-company">NX Multiserviços</p>
+                        <p class="experience-period">Abr 2024 – Jun 2024 · 3 meses</p>
+                        <p class="experience-description">Início na empresa como programador, com foco em desenvolvimento backend.</p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <h3>Auxiliar de Departamento Pessoal / Escritório</h3>
+                        <p class="experience-company">Gpo Assessoria Contábil</p>
+                        <p class="experience-period">Jun 2021 – Abr 2024 · 2 anos 11 meses</p>
+                        <p class="experience-description">Suporte administrativo e departamento pessoal em escritório contábil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certificações & Cursos</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-4c3f3c23-ba32-48d0-86c3-f016a59fc0a4.jpg" alt="Java OOP Certificate">
+                    <div class="cert-info">
+                        <h3>Java OOP</h3>
+                        <p>Udemy</p>
+                        <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-4c3f3c23-ba32-48d0-86c3-f016a59fc0a4.jpg" target="_blank" class="cert-link">Ver Certificado</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-ce026cfb-ea9d-4754-bcdc-58fcc63d74e5.jpg" alt="PostgreSQL Certificate">
+                    <div class="cert-info">
+                        <h3>PostgreSQL</h3>
+                        <p>Udemy</p>
+                        <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-ce026cfb-ea9d-4754-bcdc-58fcc63d74e5.jpg" target="_blank" class="cert-link">Ver Certificado</a>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-placeholder">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Rocketseat</h3>
+                        <p>Rocketseat</p>
+                        <a href="https://app.rocketseat.com.br/certificates/455c79a4-4e84-4028-87d1-b3e11891ef64" target="_blank" class="cert-link">Ver Certificado</a>
                     </div>
                 </div>
             </div>
@@ -113,14 +189,6 @@
                     <h3>5</h3>
                     <p>Anos de Experiência</p>
                 </div>
-                <div class="stat-card">
-                    <h3>5</h3>
-                    <p>Seguidores</p>
-                </div>
-                <div class="stat-card">
-                    <h3>100%</h3>
-                    <p>Dedicação</p>
-                </div>
             </div>
         </div>
     </section>
@@ -128,22 +196,30 @@
     <!-- Contact Section -->
     <section id="contato" class="contact">
         <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
+            <h2 class="section-title">Vamos Conversar?</h2>
             <div class="contact-content">
-                <p>Tem alguma pergunta ou gostaria de trabalhar juntos? Sinta-se livre para entrar em contato!</p>
-                <div class="social-links">
-                    <a href="https://github.com/C4LD4R3LL1" target="_blank" class="social-icon">
+                <p>Estou aberto a novas oportunidades, colaborações ou apenas uma boa troca de conhecimento. Pode chamar por qualquer canal abaixo.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
                         <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/" target="_blank" class="social-icon">
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/C4LD4R3LL1" target="_blank">C4LD4R3LL1</a></p>
+                    </div>
+                    <div class="contact-method">
                         <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="mailto:luiscaldarelli@example.com" class="social-icon">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/" target="_blank">luis-felipe-ferreira-caldarelli</a></p>
+                    </div>
+                    <div class="contact-method">
                         <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
+                        <h3>Email</h3>
+                        <p><a href="mailto:luisfelipecaldarelli77@gmail.com">luisfelipecaldarelli77@gmail.com</a></p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h3>Telefone</h3>
+                        <p><a href="tel:+5543984090058">+55 43 98409-0058</a></p>
+                    </div>
                 </div>
             </div>
         </div>

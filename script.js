@@ -36,6 +36,75 @@ window.addEventListener('scroll', () => {
 });
 
 // =====================
+// DARK MODE THEME
+// =====================
+
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+const body = document.body;
+
+// Detect system preference
+function detectSystemTheme() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+    }
+    return 'light';
+}
+
+// Get saved theme or use system preference
+function getSavedTheme() {
+    const saved = localStorage.getItem('portfolio-theme');
+    if (saved) {
+        return saved;
+    }
+    return detectSystemTheme();
+}
+
+// Apply theme
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+        updateThemeIcon('moon');
+    } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        updateThemeIcon('sun');
+    }
+    localStorage.setItem('portfolio-theme', theme);
+}
+
+// Update icon
+function updateThemeIcon(mode) {
+    const icon = themeToggle.querySelector('i');
+    if (mode === 'moon') {
+        icon.className = 'fas fa-moon';
+    } else {
+        icon.className = 'fas fa-sun';
+    }
+}
+
+// Initialize theme
+const initialTheme = getSavedTheme();
+applyTheme(initialTheme);
+
+// Toggle theme on button click
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+});
+
+// Listen for system theme changes
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+        if (!localStorage.getItem('portfolio-theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+}
+
+// =====================
 // PROJECTS DATA
 // =====================
 
