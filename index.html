@@ -3,235 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Luis Felipe Ferreira Caldarelli - Desenvolvedor">
-    <title>Luis Felipe Ferreira Caldarelli | Desenvolvedor</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Luis Felipe Caldarelli · Desenvolvedor Backend</title>
+    <meta name="description" content="Luis Felipe Ferreira Caldarelli — Desenvolvedor Backend em Londrina/PR. Java, Spring Boot, Delphi, Oracle SQL e APIs REST.">
+    <meta name="theme-color" content="#09090b">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luis Felipe Caldarelli · Desenvolvedor Backend">
+    <meta property="og:description" content="Java, Spring Boot, Delphi, Oracle SQL e APIs REST.">
+    <meta property="og:url" content="https://c4ld4r3ll1.github.io/PortfolioPessoal/">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/113150378?v=4">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Define o tema antes da pintura para evitar "flash" de cor errada
+        document.documentElement.classList.add('js');
+        try { document.documentElement.dataset.theme = localStorage.getItem('portfolio-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); }
+        catch (e) { document.documentElement.dataset.theme = 'dark'; }
+    </script>
 </head>
 <body>
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="navbar-container">
-            <div class="logo">
-                <a href="#home">LFC</a>
-            </div>
-            <nav class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#sobre" class="nav-link">Sobre</a>
-                <a href="#projetos" class="nav-link">Projetos</a>
-                <a href="#contato" class="nav-link">Contato</a>
-            </nav>
-            <div class="theme-toggle">
-                <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
-                    <i class="fas fa-sun"></i>
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="progress" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Luis Felipe Ferreira Caldarelli</h1>
-                <p class="hero-subtitle">Desenvolvedor</p>
-                <p class="hero-description">Bacharel em Ciência da Computação | Desenvolvedor Backend | Java, Python, SQL | NX Multiserviços</p>
-                <div class="cta-buttons">
-                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://avatars.githubusercontent.com/u/113150378?v=4" alt="Luis Felipe" class="profile-image">
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll para explorar</span>
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
-    </section>
+    <button id="themeToggle" class="theme-btn" aria-label="Alternar tema claro/escuro">
+        <i class="fas fa-moon"></i>
+    </button>
 
-    <!-- About Section -->
-    <section id="sobre" class="about">
-        <div class="container">
-            <h2 class="section-title">Quem Sou Eu</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Atuo como <strong>Analista de Sistemas / Desenvolvedor Backend</strong> na <strong>NX Multiserviços</strong>, onde trabalho com Java, Python, REST APIs e bancos de dados relacionais para garantir qualidade e confiabilidade dos sistemas da equipe.</p>
-                    
-                    <p>Formado em <strong>Ciência da Computação</strong> pela UniFil. Meu TCC abordou o impacto dos algoritmos de recomendação no YouTube, unindo análise técnica e reflexões sociais.</p>
+    <div class="layout">
+        <!-- Coluna fixa -->
+        <header class="side">
+            <div>
+                <div class="identity reveal">
+                    <img src="https://avatars.githubusercontent.com/u/113150378?v=4" alt="Foto de Luis Felipe" class="avatar" width="64" height="64">
+                    <span class="badge"><span class="dot"></span>Londrina, PR · Brasil</span>
+                </div>
+                <h1 class="name reveal" style="--i:1">Luis Felipe<br>Caldarelli</h1>
+                <p class="role reveal" style="--i:2">
+                    Desenvolvedor Backend
+                    <span class="sr-only">— Java, Spring Boot, Delphi, Oracle SQL e APIs REST</span>
+                    <span class="rotator" aria-hidden="true">
+                        <span>Java &amp; Spring Boot</span>
+                        <span>Delphi &amp; Oracle SQL</span>
+                        <span>APIs REST</span>
+                        <span>Jakarta EE</span>
+                        <span>Java &amp; Spring Boot</span>
+                    </span>
+                </p>
+                <p class="tagline reveal" style="--i:3">Construo e evoluo sistemas backend confiáveis — de APIs REST a consultas SQL otimizadas que fazem o negócio rodar mais rápido.</p>
 
-                    <p>Tenho foco em <strong>boas práticas de desenvolvimento</strong>, <strong>design patterns</strong> e <strong>princípios SOLID</strong>. Sempre buscando aprender e evoluir dentro do ecossistema backend.</p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="fab fa-java"></i>
-                        <h3>Java</h3>
-                        <p>OOP, Spring Framework, JSF</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-database"></i>
-                        <h3>Backend</h3>
-                        <p>Python, PHP, REST APIs</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-code"></i>
-                        <h3>Frontend</h3>
-                        <p>TypeScript, HTML, CSS, JavaScript</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-cube"></i>
-                        <h3>Padrões</h3>
-                        <p>Design Patterns, SOLID</p>
-                    </div>
-                </div>
+                <nav class="nav" aria-label="Seções">
+                    <a href="#sobre"><i class="fas fa-user"></i><span>Sobre</span></a>
+                    <a href="#experiencia"><i class="fas fa-briefcase"></i><span>Experiência</span></a>
+                    <a href="#projetos"><i class="fas fa-code"></i><span>Projetos</span></a>
+                    <a href="#stack"><i class="fas fa-layer-group"></i><span>Stack</span></a>
+                    <a href="#contato"><i class="fas fa-paper-plane"></i><span>Contato</span></a>
+                </nav>
             </div>
-        </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section class="experience">
-        <div class="container">
-            <h2 class="section-title">Experiência Profissional</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-marker"></div>
-                    <div class="experience-content">
-                        <h3>Analista de Sistemas</h3>
-                        <p class="experience-company">NX Multiserviços</p>
-                        <p class="experience-period">Jun 2024 – Presente · 1 ano+</p>
-                        <p class="experience-description">Desenvolvimento e manutenção de sistemas backend com Java, Python e bancos de dados relacionais. Garantia de qualidade e confiabilidade dos processos tecnológicos.</p>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-marker"></div>
-                    <div class="experience-content">
-                        <h3>Programador</h3>
-                        <p class="experience-company">NX Multiserviços</p>
-                        <p class="experience-period">Abr 2024 – Jun 2024 · 3 meses</p>
-                        <p class="experience-description">Início na empresa como programador, com foco em desenvolvimento backend.</p>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-marker"></div>
-                    <div class="experience-content">
-                        <h3>Auxiliar de Departamento Pessoal / Escritório</h3>
-                        <p class="experience-company">Gpo Assessoria Contábil</p>
-                        <p class="experience-period">Jun 2021 – Abr 2024 · 2 anos 11 meses</p>
-                        <p class="experience-description">Suporte administrativo e departamento pessoal em escritório contábil.</p>
-                    </div>
-                </div>
+            <div class="socials reveal" style="--i:4">
+                <a href="https://github.com/C4LD4R3LL1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:luisfelipecaldarelli77@gmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+5543984090058" aria-label="Telefone"><i class="fas fa-phone"></i></a>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Certifications Section -->
-    <section class="certifications">
-        <div class="container">
-            <h2 class="section-title">Certificações & Cursos</h2>
-            <div class="certifications-grid">
-                <div class="cert-card">
-                    <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-4c3f3c23-ba32-48d0-86c3-f016a59fc0a4.jpg" alt="Java OOP Certificate">
-                    <div class="cert-info">
-                        <h3>Java OOP</h3>
-                        <p>Udemy</p>
-                        <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-4c3f3c23-ba32-48d0-86c3-f016a59fc0a4.jpg" target="_blank" class="cert-link">Ver Certificado</a>
+        <!-- Conteúdo que rola -->
+        <main id="conteudo">
+            <section id="sobre" aria-label="Sobre">
+                <h2 class="section-title reveal">Sobre</h2>
+                <div class="about reveal">
+                    <p>Atuo como <strong>Desenvolvedor Back-End na Solus Saúde</strong>, trabalhando com manutenção, evolução e correção de sistemas, análise de problemas e <strong>otimização de processos e consultas em banco de dados</strong>.</p>
+                    <p>Tenho experiência com <strong>Delphi, Oracle SQL, PHP, Java e APIs REST</strong>, sempre com foco em boas práticas, design patterns e princípios SOLID.</p>
+                    <p>Sou bacharel em <strong>Ciência da Computação pela UniFil</strong> — meu TCC analisou o impacto dos algoritmos de recomendação do YouTube, unindo computação e seus efeitos sociais.</p>
+                </div>
+
+                <div class="bento">
+                    <div class="card stat reveal"><strong><span data-count="2">2</span><em>+</em></strong><span>anos como dev</span></div>
+                    <div class="card stat reveal" style="--i:1"><strong><span data-count="15" id="repoCount">15</span></strong><span>repositórios públicos</span></div>
+                    <div class="card stat reveal" style="--i:2"><strong><span data-count="5">5</span><em>+</em></strong><span>anos de mercado</span></div>
+                    <div class="card edu reveal" style="--i:3">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h3>Ciência da Computação</h3>
+                            <p>UniFil · 2022 – 2026</p>
+                            <p class="muted">TCC: impacto dos algoritmos de recomendação no YouTube.</p>
+                        </div>
+                    </div>
+                    <div class="card langs reveal" style="--i:4">
+                        <h3>Idiomas</h3>
+                        <ul>
+                            <li><span>Português</span><span class="bar" style="--v:100%"></span></li>
+                            <li><span>Inglês</span><span class="bar" style="--v:35%"></span></li>
+                            <li><span>Espanhol</span><span class="bar" style="--v:30%"></span></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="cert-card">
-                    <img src="https://udemy-certificate.s3.amazonaws.com/image/UC-ce026cfb-ea9d-4754-bcdc-58fcc63d74e5.jpg" alt="PostgreSQL Certificate">
-                    <div class="cert-info">
-                        <h3>PostgreSQL</h3>
-                        <p>Udemy</p>
-                        <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-ce026cfb-ea9d-4754-bcdc-58fcc63d74e5.jpg" target="_blank" class="cert-link">Ver Certificado</a>
+            </section>
+
+            <section id="experiencia" aria-label="Experiência">
+                <h2 class="section-title reveal">Experiência</h2>
+                <div class="tabs reveal">
+                    <div class="tablist" role="tablist" aria-label="Empresas">
+                        <button role="tab" id="t-solus" aria-controls="p-solus" aria-selected="true">Solus Saúde</button>
+                        <button role="tab" id="t-nx" aria-controls="p-nx" aria-selected="false" tabindex="-1">NX Multiserviços</button>
+                        <button role="tab" id="t-gpo" aria-controls="p-gpo" aria-selected="false" tabindex="-1">Gpo Contábil</button>
+                        <span class="tab-indicator" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="tabpanel" role="tabpanel" id="p-solus" aria-labelledby="t-solus">
+                        <h3>Analista de Desenvolvimento <span class="accent">@ Solus Saúde</span></h3>
+                        <p class="period">Set 2026 – Presente · Londrina, PR</p>
+                        <ul>
+                            <li>Manutenção, evolução e correção de sistemas de gestão em saúde.</li>
+                            <li>Análise de problemas e otimização de processos e consultas em banco de dados.</li>
+                            <li>Desenvolvimento backend e integrações via APIs REST.</li>
+                        </ul>
+                        <div class="chips"><span>Delphi</span><span>Oracle SQL</span><span>APIs REST</span></div>
+                    </div>
+
+                    <div class="tabpanel" role="tabpanel" id="p-nx" aria-labelledby="t-nx" hidden>
+                        <h3>Analista de Sistemas <span class="accent">@ NX Multiserviços</span></h3>
+                        <p class="period">Jun 2024 – Set 2026 · 2 anos 4 meses</p>
+                        <ul>
+                            <li>Desenvolvimento e manutenção de sistemas backend com Java, Python e bancos de dados relacionais.</li>
+                            <li>Garantia de qualidade e confiabilidade dos processos tecnológicos da equipe.</li>
+                        </ul>
+                        <h3 class="sub">Programador</h3>
+                        <p class="period">Abr 2024 – Jun 2024 · 3 meses</p>
+                        <ul>
+                            <li>Início na empresa com foco em desenvolvimento backend.</li>
+                        </ul>
+                        <div class="chips"><span>Java</span><span>Python</span><span>PHP</span><span>SQL</span><span>APIs REST</span></div>
+                    </div>
+
+                    <div class="tabpanel" role="tabpanel" id="p-gpo" aria-labelledby="t-gpo" hidden>
+                        <h3>Auxiliar de Departamento Pessoal <span class="accent">@ Gpo Assessoria Contábil</span></h3>
+                        <p class="period">Jul 2023 – Abr 2024 · 10 meses</p>
+                        <h3 class="sub">Auxiliar de Escritório</h3>
+                        <p class="period">Jun 2021 – Abr 2024 · 2 anos 11 meses</p>
+                        <ul>
+                            <li>Rotinas administrativas e de departamento pessoal em escritório contábil.</li>
+                            <li>Vivência com processos de negócio reais antes da carreira em tecnologia.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-placeholder">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="cert-info">
-                        <h3>Rocketseat</h3>
-                        <p>Rocketseat</p>
-                        <a href="https://app.rocketseat.com.br/certificates/455c79a4-4e84-4028-87d1-b3e11891ef64" target="_blank" class="cert-link">Ver Certificado</a>
+            </section>
+
+            <section id="projetos" aria-label="Projetos">
+                <h2 class="section-title reveal">Projetos</h2>
+                <div class="filters reveal" role="group" aria-label="Filtrar projetos">
+                    <button class="chip-btn" aria-pressed="true" data-filter="all">Todos</button>
+                    <button class="chip-btn" aria-pressed="false" data-filter="java">Java</button>
+                    <button class="chip-btn" aria-pressed="false" data-filter="web">Web</button>
+                    <button class="chip-btn" aria-pressed="false" data-filter="dados">Dados</button>
+                    <button class="chip-btn" aria-pressed="false" data-filter="praticas">Boas práticas</button>
+                </div>
+                <div class="projects" id="projectsContainer"></div>
+                <a class="more-link" href="https://github.com/C4LD4R3LL1?tab=repositories" target="_blank" rel="noopener">Ver todos no GitHub <i class="fas fa-arrow-right"></i></a>
+            </section>
+
+            <section id="stack" aria-label="Stack e certificações">
+                <h2 class="section-title reveal">Stack</h2>
+                <div class="stack">
+                    <div class="card reveal"><h3><i class="fas fa-server"></i> Backend</h3><div class="chips"><span>Java</span><span>Spring Boot</span><span>Jakarta EE</span><span>Delphi</span><span>PHP</span><span>Python</span><span>APIs REST</span></div></div>
+                    <div class="card reveal" style="--i:1"><h3><i class="fas fa-database"></i> Dados</h3><div class="chips"><span>Oracle SQL</span><span>PostgreSQL</span><span>Modelagem relacional</span></div></div>
+                    <div class="card reveal" style="--i:2"><h3><i class="fas fa-gears"></i> DevOps</h3><div class="chips"><span>Jenkins</span><span>Git</span><span>GitHub Actions</span></div></div>
+                    <div class="card reveal" style="--i:3"><h3><i class="fas fa-compass-drafting"></i> Práticas &amp; Front</h3><div class="chips"><span>SOLID</span><span>Design Patterns</span><span>TypeScript</span><span>HTML/CSS</span></div></div>
+                </div>
+
+                <h3 class="subhead reveal">Certificações</h3>
+                <div class="certs">
+                    <a class="card cert reveal" href="https://udemy-certificate.s3.amazonaws.com/image/UC-4c3f3c23-ba32-48d0-86c3-f016a59fc0a4.jpg" target="_blank" rel="noopener">
+                        <i class="fab fa-java"></i><span><strong>Java COMPLETO: POO + Projetos</strong><small>Udemy</small></span><i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="card cert reveal" style="--i:1" href="https://udemy-certificate.s3.amazonaws.com/image/UC-ce026cfb-ea9d-4754-bcdc-58fcc63d74e5.jpg" target="_blank" rel="noopener">
+                        <i class="fas fa-database"></i><span><strong>Curso completo de PostgreSQL</strong><small>Udemy</small></span><i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a class="card cert reveal" style="--i:2" href="https://app.rocketseat.com.br/certificates/455c79a4-4e84-4028-87d1-b3e11891ef64" target="_blank" rel="noopener">
+                        <i class="fas fa-rocket"></i><span><strong>Curso de Java</strong><small>Rocketseat</small></span><i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section id="contato" aria-label="Contato">
+                <h2 class="section-title reveal">Contato</h2>
+                <div class="card contact reveal">
+                    <p class="kicker">Próximo passo</p>
+                    <h3>Vamos construir algo juntos?</h3>
+                    <p class="muted">Aberto a colaborações, conversas sobre backend ou apenas uma boa troca de conhecimento.</p>
+                    <div class="contact-actions">
+                        <button class="btn btn-primary" id="copyEmail" data-email="luisfelipecaldarelli77@gmail.com"><i class="far fa-copy"></i> Copiar e-mail</button>
+                        <a class="btn" href="https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a class="btn" href="https://github.com/C4LD4R3LL1" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Projects Section -->
-    <section id="projetos" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projetos Destacados</h2>
-            <div class="projects-grid" id="projectsContainer">
-                <!-- Projects will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
+            <footer class="footer">
+                <p>Feito à mão com HTML, CSS e JavaScript puro · © 2026 Luis Felipe Ferreira Caldarelli</p>
+            </footer>
+        </main>
+    </div>
 
-    <!-- Statistics Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>15</h3>
-                    <p>Repositórios Públicos</p>
-                </div>
-                <div class="stat-card">
-                    <h3>5</h3>
-                    <p>Anos de Experiência</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="contact">
-        <div class="container">
-            <h2 class="section-title">Vamos Conversar?</h2>
-            <div class="contact-content">
-                <p>Estou aberto a novas oportunidades, colaborações ou apenas uma boa troca de conhecimento. Pode chamar por qualquer canal abaixo.</p>
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fab fa-github"></i>
-                        <h3>GitHub</h3>
-                        <p><a href="https://github.com/C4LD4R3LL1" target="_blank">C4LD4R3LL1</a></p>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fab fa-linkedin"></i>
-                        <h3>LinkedIn</h3>
-                        <p><a href="https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/" target="_blank">luis-felipe-ferreira-caldarelli</a></p>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p><a href="mailto:luisfelipecaldarelli77@gmail.com">luisfelipecaldarelli77@gmail.com</a></p>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-phone"></i>
-                        <h3>Telefone</h3>
-                        <p><a href="tel:+5543984090058">+55 43 98409-0058</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Luis Felipe Ferreira Caldarelli. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
+    <div class="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
 </body>
 </html>

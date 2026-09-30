@@ -1,141 +1,87 @@
-# 👨‍💻 Luis Felipe Ferreira Caldarelli - Portfólio
+<div align="center">
 
-Um portfólio pessoal moderno, responsivo e com interatividade impressionante. Criado com HTML, CSS e JavaScript puro.
+<img src="favicon.svg" width="72" alt="Logo LF">
 
-🌐 **Acesse em:** [https://c4ld4r3ll1.github.io/PortfolioPessoal/](https://c4ld4r3ll1.github.io/PortfolioPessoal/)
+# Luis Felipe Caldarelli — Portfólio
 
-## ✨ Recursos
+**Desenvolvedor Backend** · Java · Spring Boot · Delphi · Oracle SQL · APIs REST
 
-### Design
-- 🎨 **Design Moderno**: Gradientes bonitos e cores harmônicas
-- 📱 **Totalmente Responsivo**: Funciona perfeitamente em qualquer dispositivo
-- ♿ **Acessível**: Navegação por teclado e bom contraste de cores
+[![Deploy](https://github.com/C4LD4R3LL1/PortfolioPessoal/actions/workflows/deploy.yml/badge.svg)](https://github.com/C4LD4R3LL1/PortfolioPessoal/actions/workflows/deploy.yml)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Sem dependências](https://img.shields.io/badge/build-zero%20dependências-a5b4fc)
 
-### Interatividade
-- 🎯 **Scroll Interativo**: Efeitos parallax e animações ao scrollar
-- 🎬 **Animações Suaves**: Transições fluidas em todos os elementos
-- ⌨️ **Navegação Fluida**: Links que scrollam suavemente para cada seção
-- 📱 **Menu Mobile**: Hamburger menu para dispositivos móveis
+### [🌐 c4ld4r3ll1.github.io/PortfolioPessoal](https://c4ld4r3ll1.github.io/PortfolioPessoal/)
 
-### Seções
-- **Hero**: Apresentação impactante com CTA buttons
-- **Sobre**: Informações profissionais e cards de habilidades
-- **Projetos**: 8 projetos destacados com links para GitHub
-- **Estatísticas**: Números com animação de contagem
-- **Contato**: Links social para GitHub e LinkedIn
-
-## 🚀 Deployment - GitHub Pages (Automático)
-
-O portfólio é **deployado automaticamente** sempre que há um push para a branch `main`.
-
-### Como Funciona
-
-1. **Push automático**: Qualquer commit na branch `main` dispara o workflow
-2. **GitHub Actions**: Build automático e deploy para GitHub Pages
-3. **URL de Acesso**: `https://<seu-usuario>.github.io/PortfolioPessoal/`
-
-### Configuração Necessária
-
-1. **Habilite GitHub Pages** no repositório:
-   - Vá para **Settings** → **Pages**
-   - Em "Build and deployment":
-     - Source: **Deploy from a branch**
-     - Branch: **gh-pages** (será criada automaticamente)
-     - Folder: **/ (root)**
-
-2. **Workflow está configurado** em `.github/workflows/deploy.yml`
-   - ✅ Dispara automaticamente em push para `main`
-   - ✅ Faz deploy para a branch `gh-pages`
-   - ✅ Suporta pull requests
-
-### Status do Deployment
-
-Você pode acompanhar o status dos deployments em:
-- **Actions** na aba do repositório GitHub
-- **Deployments** em Settings
-
-## 💻 Desenvolvimento Local
-
-### Pré-requisitos
-- Navegador moderno (Chrome, Firefox, Safari, Edge)
-- Servidor local (opcional, mas recomendado)
-
-### Rodando Localmente
-
-```bash
-# Opção 1: Python
-python3 -m http.server 8000
-
-# Opção 2: Node.js (http-server)
-npm install -g http-server
-http-server
-
-# Opção 3: Node.js (Live Server)
-npx live-server
-```
-
-Acesse: `http://localhost:8000`
-
-## 📁 Estrutura do Projeto
-
-```
-PortfolioPessoal/
-├── index.html              # Estrutura HTML
-├── styles.css              # Estilos CSS (700+ linhas)
-├── script.js               # JavaScript (interatividade)
-├── README.md               # Este arquivo
-└── .github/
-    └── workflows/
-        └── deploy.yml      # Workflow do GitHub Actions
-```
-
-## 🎨 Personalização
-
-### Cores
-Para mudar as cores do tema, edite as variáveis CSS em `styles.css`:
-
-```css
-:root {
-    --primary: #6366f1;        /* Roxo primário */
-    --secondary: #8b5cf6;      /* Roxo secundário */
-    --accent: #ec4899;         /* Rosa accent */
-    /* ... outras cores ... */
-}
-```
-
-### Dados Pessoais
-Para atualizar suas informações:
-
-1. **Hero Section** - Edite em `index.html`:
-   - Nome, subtitle, descrição
-   - Imagem de perfil
-
-2. **Sobre** - Edite o texto e skills
-
-3. **Projetos** - Edite o array `projectsData` em `script.js`
-
-4. **Contato** - Atualize os links sociais
-
-## 🔧 Tecnologias
-
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilos avançados (flexbox, grid, animações)
-- **JavaScript** - Interatividade (scroll, animações, menu)
-- **GitHub Actions** - CI/CD automático
-- **GitHub Pages** - Hospedagem gratuita
-
-## 📊 Performance
-
-- ⚡ **Carregamento Rápido**: Arquivo único sem dependências externas
-- 🎯 **Lighthouse Score**: 95+
-- 📦 **Tamanho Mínimo**: ~50KB total
-- 🔄 **Sem Build Process**: Pronto para produção
-
-## 📞 Contato
-
-- **GitHub**: [C4LD4R3LL1](https://github.com/C4LD4R3LL1)
-- **LinkedIn**: [Luis Felipe Ferreira Caldarelli](https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/)
+</div>
 
 ---
 
-**Criado com ❤️ em abril de 2026**
+## ✨ Destaques
+
+Portfólio de página única, feito **à mão com HTML, CSS e JavaScript puro** — sem framework, sem build, sem `node_modules`.
+
+| | Recurso | Como funciona |
+|---|---|---|
+| 🧭 | **Layout de rolagem curta** | No desktop, a identidade fica fixa à esquerda e só o conteúdo rola à direita. No mobile, vira um *dock* flutuante na base da tela. |
+| 🎬 | **Revelação ao rolar** | Cada bloco surge com *fade + blur* escalonado via `IntersectionObserver`. |
+| 📊 | **Barra de progresso** | Indicador de leitura no topo usando *scroll-driven animations* (CSS nativo, zero JS). |
+| 🔦 | **Spotlight** | Um brilho segue o cursor pela página e pelas bordas dos cards. |
+| 🗂️ | **Experiência em abas** | Abas acessíveis (setas do teclado) com indicador deslizante. |
+| 🧩 | **Filtro de projetos** | O grid se reorganiza animado com a **View Transitions API**. |
+| 🌗 | **Tema claro/escuro** | Transição circular a partir do botão; respeita a preferência do sistema e lembra a escolha. |
+| 🔄 | **Dados ao vivo** | Número de repositórios e estrelas vêm da API do GitHub (com *fallback* estático). |
+| 📋 | **Copiar e-mail** | Um clique copia o e-mail com *toast* de confirmação. |
+| ♿ | **Acessível** | *Skip link*, foco visível, ARIA nas abas/filtros e respeito a `prefers-reduced-motion`. |
+
+## 📑 Seções
+
+1. **Sobre** — resumo, métricas em *bento grid*, formação (UniFil) e idiomas
+2. **Experiência** — Solus Saúde, NX Multiserviços e Gpo Assessoria Contábil
+3. **Projetos** — 8 repositórios em destaque, filtráveis por categoria
+4. **Stack** — tecnologias agrupadas e certificações
+5. **Contato** — e-mail, LinkedIn e GitHub
+
+## 💻 Rodando localmente
+
+Qualquer servidor estático serve:
+
+```bash
+python -m http.server 8000
+```
+
+Depois acesse `http://localhost:8000`.
+
+## 🚀 Deploy
+
+Cada push na `main` publica automaticamente no **GitHub Pages** via [`deploy.yml`](.github/workflows/deploy.yml).
+
+Configuração única: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+## 🎨 Personalização
+
+| O quê | Onde |
+|---|---|
+| Cores, fontes, raio dos cards | Variáveis no topo de `styles.css` (`:root` e `[data-theme="light"]`) |
+| Projetos | Array `projectsData` em `script.js` (`tags` define o filtro) |
+| Textos, experiência, stack, certificações | `index.html` |
+| Favicon | `favicon.svg` |
+
+## 📁 Estrutura
+
+```
+PortfolioPessoal/
+├── index.html        # Estrutura e conteúdo
+├── styles.css        # Tema, layout e animações
+├── script.js         # Interações e dados dos projetos
+├── favicon.svg       # Ícone "LF"
+└── .github/workflows/
+    └── deploy.yml    # Deploy no GitHub Pages
+```
+
+## 📬 Contato
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luis-felipe-ferreira-caldarelli-539906251/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/C4LD4R3LL1)
+[![Email](https://img.shields.io/badge/Email-EA4335?logo=gmail&logoColor=white)](mailto:luisfelipecaldarelli77@gmail.com)

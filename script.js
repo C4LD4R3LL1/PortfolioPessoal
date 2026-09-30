@@ -1,385 +1,214 @@
+const root = document.documentElement;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canTransition = !!document.startViewTransition && !reduced;
+
 // =====================
-// NAVIGATION
+// TEMA (claro/escuro com transição circular)
 // =====================
 
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const navbar = document.querySelector('.navbar');
+const themeBtn = document.getElementById('themeToggle');
+const setIcon = () => themeBtn.querySelector('i').className = root.dataset.theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+setIcon();
 
-// Toggle mobile menu
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
+themeBtn.addEventListener('click', () => {
+    const toggle = () => {
+        root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('portfolio-theme', root.dataset.theme); } catch (e) {}
+        setIcon();
+    };
+    if (!canTransition) return toggle();
 
-// Close menu when clicking a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+    const r = themeBtn.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    document.startViewTransition(toggle).ready.then(() => {
+        root.animate(
+            { clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${end}px at ${x}px ${y}px)`] },
+            { duration: 550, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
+        );
     });
 });
 
-// Navbar scroll effect
-let lastScrollTop = 0;
-window.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
-
 // =====================
-// DARK MODE THEME
-// =====================
-
-const themeToggle = document.getElementById('themeToggle');
-const htmlElement = document.documentElement;
-const body = document.body;
-
-// Detect system preference
-function detectSystemTheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-    }
-    return 'light';
-}
-
-// Get saved theme or use system preference
-function getSavedTheme() {
-    const saved = localStorage.getItem('portfolio-theme');
-    if (saved) {
-        return saved;
-    }
-    return detectSystemTheme();
-}
-
-// Apply theme
-function applyTheme(theme) {
-    if (theme === 'dark') {
-        body.classList.add('dark-mode');
-        body.classList.remove('light-mode');
-        updateThemeIcon('moon');
-    } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        updateThemeIcon('sun');
-    }
-    localStorage.setItem('portfolio-theme', theme);
-}
-
-// Update icon
-function updateThemeIcon(mode) {
-    const icon = themeToggle.querySelector('i');
-    if (mode === 'moon') {
-        icon.className = 'fas fa-moon';
-    } else {
-        icon.className = 'fas fa-sun';
-    }
-}
-
-// Initialize theme
-const initialTheme = getSavedTheme();
-applyTheme(initialTheme);
-
-// Toggle theme on button click
-themeToggle.addEventListener('click', () => {
-    const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-});
-
-// Listen for system theme changes
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
-        if (!localStorage.getItem('portfolio-theme')) {
-            applyTheme(e.matches ? 'dark' : 'light');
-        }
-    });
-}
-
-// =====================
-// PROJECTS DATA
+// PROJETOS
 // =====================
 
 const projectsData = [
-    {
-        name: 'BoasPraticas-DesignPatterns',
-        description: 'Repositório com exemplos práticos de Design Patterns e boas práticas de desenvolvimento.',
-        tech: 'Design Patterns',
-        url: 'https://github.com/C4LD4R3LL1/BoasPraticas-DesignPatterns',
-        stars: 1,
-        icon: '🎨'
-    },
-    {
-        name: 'BoasPaticas-SOLID',
-        description: 'Implementação dos princípios SOLID com exemplos de código bem estruturado.',
-        tech: 'SOLID',
-        url: 'https://github.com/C4LD4R3LL1/BoasPaticas-SOLID',
-        stars: 0,
-        icon: '🏗️'
-    },
-    {
-        name: 'Estoque-Web',
-        description: 'Sistema web de gerenciamento de estoque com interface intuitiva e funcionalidades completas.',
-        tech: 'HTML, CSS, JavaScript, Node.js',
-        url: 'https://github.com/C4LD4R3LL1/Estoque-Web',
-        stars: 0,
-        icon: '📦'
-    },
-    {
-        name: 'Cadastro-De-Jogadores',
-        description: 'Aplicação Java para gerenciamento de jogadores e equipes esportivas com menu interativo.',
-        tech: 'Java',
-        url: 'https://github.com/C4LD4R3LL1/Cadastro-De-Jogadores',
-        stars: 1,
-        icon: '⚽'
-    },
-    {
-        name: 'VCN-Trabalho',
-        description: 'Projeto de Métodos Numéricos com implementação em Java para cálculos complexos.',
-        tech: 'Java',
-        url: 'https://github.com/C4LD4R3LL1/VCN-Trabalho',
-        stars: 0,
-        icon: '🔢'
-    },
-    {
-        name: 'Sistema-de-Gerenciamento-de-Bibliotecas',
-        description: 'Base sólida para sistema de gerenciamento de bibliotecas com controle eficiente de livros e autores.',
-        tech: 'Database Design',
-        url: 'https://github.com/C4LD4R3LL1/Sistema-de-Gerenciamento-de-Bibliotecas',
-        stars: 0,
-        icon: '📚'
-    },
-    {
-        name: 'PortfolioMat',
-        description: 'Portfolio responsivo com design moderno e interativo.',
-        tech: 'HTML, CSS, JavaScript',
-        url: 'https://github.com/C4LD4R3LL1/PortfolioMat',
-        stars: 1,
-        icon: '🎯'
-    },
-    {
-        name: 'Atividade-Front',
-        description: 'Projeto frontend com foco em experiência do usuário e design responsivo.',
-        tech: 'PHP, Frontend',
-        url: 'https://github.com/C4LD4R3LL1/Atividade-Front',
-        stars: 0,
-        icon: '🖥️'
-    }
+    { name: 'Bot Lead', repo: 'bot-lead', icon: 'fa-robot', tags: 'dados', tech: ['Python', 'Automação'], stars: 0,
+      description: 'Bot que busca leads de empresas que ainda não possuem site — prospecção automatizada.' },
+    { name: 'Estoque Web', repo: 'Estoque-Web', icon: 'fa-boxes-stacked', tags: 'web', tech: ['Node.js', 'JavaScript', 'HTML/CSS'], stars: 0,
+      description: 'Sistema web de gerenciamento de estoque com interface intuitiva e funcionalidades completas.' },
+    { name: 'Design Patterns', repo: 'BoasPraticas-DesignPatterns', icon: 'fa-puzzle-piece', tags: 'praticas', tech: ['Design Patterns', 'OOP'], stars: 1,
+      description: 'Exemplos práticos de Design Patterns e boas práticas de desenvolvimento.' },
+    { name: 'SOLID na prática', repo: 'BoasPaticas-SOLID', icon: 'fa-cubes', tags: 'praticas', tech: ['SOLID', 'Clean Code'], stars: 0,
+      description: 'Implementação dos princípios SOLID com exemplos de código bem estruturado.' },
+    { name: 'Cadastro de Jogadores', repo: 'Cadastro-De-Jogadores', icon: 'fa-futbol', tags: 'java', tech: ['Java', 'CLI'], stars: 1,
+      description: 'Gerenciamento de jogadores e equipes esportivas: contratações, demissões e listagens por posição.' },
+    { name: 'Métodos Numéricos', repo: 'VCN-Trabalho', icon: 'fa-square-root-variable', tags: 'java', tech: ['Java', 'Cálculo Numérico'], stars: 0,
+      description: 'Implementação em Java de métodos numéricos para resolução de cálculos complexos.' },
+    { name: 'Gestão de Bibliotecas', repo: 'Sistema-de-Gerenciamento-de-Bibliotecas', icon: 'fa-book', tags: 'dados', tech: ['SQL', 'Modelagem'], stars: 0,
+      description: 'Modelagem de banco de dados para controle eficiente de livros, autores e suas relações.' },
+    { name: 'PortfolioMat', repo: 'PortfolioMat', icon: 'fa-palette', tags: 'web', tech: ['HTML', 'CSS', 'JavaScript'], stars: 1,
+      description: 'Portfólio responsivo com design moderno e interativo.' }
 ];
 
-// =====================
-// RENDER PROJECTS
-// =====================
+const projectsContainer = document.getElementById('projectsContainer');
+projectsContainer.innerHTML = projectsData.map((p, i) => `
+    <article class="card project reveal" style="--i:${i % 2}" data-tags="${p.tags}" data-repo="${p.repo}">
+        <div class="project-top">
+            <i class="fas ${p.icon}"></i>
+            <span class="stars" ${p.stars ? '' : 'hidden'}><i class="fas fa-star"></i><b>${p.stars}</b></span>
+        </div>
+        <h3><a href="https://github.com/C4LD4R3LL1/${p.repo}" target="_blank" rel="noopener">${p.name}<i class="fas fa-arrow-right"></i></a></h3>
+        <p>${p.description}</p>
+        <ul class="tech">${p.tech.map(t => `<li>${t}</li>`).join('')}</ul>
+    </article>`).join('');
 
-function renderProjects() {
-    const projectsContainer = document.getElementById('projectsContainer');
-    
-    projectsData.forEach((project, index) => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.style.setProperty('--index', index);
-        
-        const starsHTML = project.stars > 0 
-            ? `<span class="project-stars"><i class="fas fa-star"></i> ${project.stars}</span>` 
-            : '';
-        
-        projectCard.innerHTML = `
-            <div class="project-header">
-                <div class="project-icon">${project.icon}</div>
-                <h3 class="project-title">${project.name}</h3>
-                <p class="project-tech">${project.tech}</p>
-            </div>
-            <div class="project-body">
-                <p class="project-description">${project.description}</p>
-                <div class="project-footer">
-                    ${starsHTML}
-                    <a href="${project.url}" target="_blank" class="project-link">
-                        Ver no GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        `;
-        
-        projectsContainer.appendChild(projectCard);
-    });
-}
-
-// =====================
-// SCROLL ANIMATIONS
-// =====================
-
-function observeElements() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
+// Filtro com View Transitions (anima a reorganização do grid)
+const filterBtns = document.querySelectorAll('[data-filter]');
+filterBtns.forEach(btn => btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    const cards = [...projectsContainer.children];
+    const apply = () => {
+        filterBtns.forEach(b => b.setAttribute('aria-pressed', b === btn));
+        cards.forEach(c => {
+            c.classList.add('in');
+            c.hidden = f !== 'all' && !c.dataset.tags.split(' ').includes(f);
         });
-    }, observerOptions);
-    
-    // Observe skill cards, project cards, and stat cards
-    document.querySelectorAll('.skill-card, .project-card, .stat-card').forEach(el => {
-        observer.observe(el);
+    };
+    if (!canTransition) return apply();
+    cards.forEach((c, i) => c.style.viewTransitionName = 'p' + i);
+    document.startViewTransition(apply).finished.finally(() => cards.forEach(c => c.style.viewTransitionName = ''));
+}));
+
+// =====================
+// REVELAR AO ROLAR + CONTADORES
+// =====================
+
+const countUp = (el) => {
+    const t0 = performance.now();
+    const step = (t) => {
+        const p = Math.min((t - t0) / 1400, 1);
+        el.textContent = Math.round(+el.dataset.count * (1 - (1 - p) ** 3));
+        if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+};
+
+const revealer = new IntersectionObserver((entries) => entries.forEach(({ isIntersecting, target }) => {
+    if (!isIntersecting) return;
+    target.classList.add('in');
+    if (!reduced) target.querySelectorAll('[data-count]').forEach(countUp);
+    revealer.unobserve(target);
+}), { rootMargin: '0px 0px -8% 0px' });
+
+// a coluna fixa não rola, então aparece direto
+document.querySelectorAll('.reveal').forEach(el => el.closest('.side') ? el.classList.add('in') : revealer.observe(el));
+
+// =====================
+// NAVEGAÇÃO: seção ativa
+// =====================
+
+const navLinks = document.querySelectorAll('.nav a');
+const sections = [...document.querySelectorAll('main section')];
+const spy = () => {
+    const atBottom = innerHeight + scrollY >= root.scrollHeight - 4;
+    const current = atBottom ? sections.at(-1) : sections.findLast(s => s.getBoundingClientRect().top < innerHeight * 0.4) || sections[0];
+    navLinks.forEach(a => a.hash === '#' + current.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
+};
+addEventListener('scroll', spy, { passive: true });
+spy();
+
+// =====================
+// ABAS DE EXPERIÊNCIA
+// =====================
+
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+const indicator = document.querySelector('.tab-indicator');
+const moveIndicator = (tab) => indicator.style.cssText =
+    `--x:${tab.offsetLeft}px;--y:${tab.offsetTop}px;--w:${tab.offsetWidth}px;--h:${tab.offsetHeight}px`;
+
+const selectTab = (tab) => {
+    tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
     });
-}
+    moveIndicator(tab);
+};
 
-// =====================
-// SMOOTH SCROLL OFFSET
-// =====================
-
-function smoothScroll(e) {
-    const href = e.currentTarget.getAttribute('href');
-    
-    if (href.startsWith('#')) {
+tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', (e) => {
+        const dir = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+        if (!dir) return;
         e.preventDefault();
-        const element = document.querySelector(href);
-        
-        if (element) {
-            const offsetTop = element.offsetTop - 80; // Navbar height
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    }
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', smoothScroll);
-});
-
-// =====================
-// PARALLAX EFFECT
-// =====================
-
-function parallaxScroll() {
-    const scrollTop = window.pageYOffset;
-    const heroImage = document.querySelector('.hero-image');
-    
-    if (heroImage) {
-        heroImage.style.transform = `translateY(${scrollTop * 0.5}px)`;
-    }
-}
-
-window.addEventListener('scroll', parallaxScroll);
-
-// =====================
-// COUNTER ANIMATION
-// =====================
-
-function animateCounters() {
-    const stats = document.querySelectorAll('.stat-card h3');
-    const observerOptions = {
-        threshold: 0.5
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.dataset.animated) {
-                const element = entry.target;
-                const target = parseInt(element.textContent);
-                const isPercentage = element.textContent.includes('%');
-                
-                animateValue(element, 0, target, isPercentage);
-                element.dataset.animated = true;
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    stats.forEach(stat => observer.observe(stat));
-}
-
-function animateValue(element, start, end, isPercentage = false) {
-    const duration = 2000; // 2 segundos
-    const startTime = Date.now();
-    
-    function update() {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function for smoother animation
-        const easeOutExpo = 1 - Math.pow(2, -10 * progress);
-        const current = Math.floor(start + (end - start) * easeOutExpo);
-        
-        element.textContent = current + (isPercentage ? '%' : '');
-        
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
-    }
-    
-    requestAnimationFrame(update);
-}
-
-// =====================
-// INITIALIZATION
-// =====================
-
-document.addEventListener('DOMContentLoaded', () => {
-    renderProjects();
-    observeElements();
-    animateCounters();
-    
-    // Add fade-in animation to section titles
-    document.querySelectorAll('.section-title').forEach((title, index) => {
-        title.style.animation = `fadeInUp 0.8s ease-out ${0.2 + index * 0.1}s both`;
+        const next = tabs[(i + dir + tabs.length) % tabs.length];
+        next.focus();
+        selectTab(next);
     });
 });
 
+const syncIndicator = () => moveIndicator(document.querySelector('[role="tab"][aria-selected="true"]'));
+addEventListener('resize', syncIndicator);
+document.fonts.ready.then(syncIndicator);
+syncIndicator();
+
 // =====================
-// PERFORMANCE OPTIMIZATION
+// SPOTLIGHT (segue o mouse)
 // =====================
 
-// Debounce for scroll events
-let scrollTimeout;
-let isScrolling = false;
-
-window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-        isScrolling = true;
-        
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            isScrolling = false;
-        }, 100);
+const spotlight = document.querySelector('.spotlight');
+addEventListener('pointermove', (e) => {
+    spotlight.style.opacity = 1;
+    spotlight.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    const card = e.target.closest?.('.card');
+    if (card) {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--x', `${e.clientX - r.left}px`);
+        card.style.setProperty('--y', `${e.clientY - r.top}px`);
     }
 }, { passive: true });
 
 // =====================
-// KEYBOARD NAVIGATION
+// COPIAR E-MAIL
 // =====================
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+const toast = document.querySelector('.toast');
+let toastTimer;
+const showToast = (msg) => {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+};
+
+const copyBtn = document.getElementById('copyEmail');
+copyBtn.addEventListener('click', async () => {
+    const email = copyBtn.dataset.email;
+    try {
+        await navigator.clipboard.writeText(email);
+        showToast('E-mail copiado ✓');
+    } catch (e) {
+        location.href = 'mailto:' + email;
     }
 });
 
 // =====================
-// FORM VALIDATION (if needed in future)
+// DADOS AO VIVO DO GITHUB (fallback: valores estáticos acima)
 // =====================
 
-// Add this if you implement a contact form
-// const form = document.querySelector('.contact-form');
-// if (form) {
-//     form.addEventListener('submit', (e) => {
-//         e.preventDefault();
-//         // Validation logic here
-//     });
-// }
+fetch('https://api.github.com/users/C4LD4R3LL1/repos?per_page=100')
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(repos => {
+        const repoCount = document.getElementById('repoCount');
+        repoCount.dataset.count = repoCount.textContent = repos.length;
+        repos.forEach(({ name, stargazers_count }) => {
+            const stars = document.querySelector(`[data-repo="${name}"] .stars`);
+            if (!stars) return;
+            stars.querySelector('b').textContent = stargazers_count;
+            stars.hidden = !stargazers_count;
+        });
+    })
+    .catch(() => {});
